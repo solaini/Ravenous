@@ -3,8 +3,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import logo from './logo.svg';
 import './App.css';
-import BusinessList from './components/businessList';
-import SearchBar from './components/SearchBar';
+import BusinessList from './components/BusinessList/BusinessList';
+import SearchBar from './components/SearchBar/SearchBar';
 
 
 
