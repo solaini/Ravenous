@@ -9,6 +9,7 @@ class BusinessList extends React.Component {
                 {this.props.businesses.map(business => <Business businesses={business}/>)}
             </div>
             );
+
     }
 }
 export default BusinessList;
