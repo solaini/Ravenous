@@ -15,6 +15,10 @@ class SearchBar extends React.Component {
                     term: '',
                     location: '',
                     sortBy: 'best_match'};
+        this.handleSortByChange = this.handleSortByChange.bind(this);
+        this.handleTermChange = this.handleTermChange.bind(this);
+        this.handleLocationChange = this.handleLocationChange.bind(this);
+        this.handleSearch = this.handleSearch.bind(this);
     }
     
     sortByOptions= {
@@ -35,10 +39,23 @@ class SearchBar extends React.Component {
         this.setState({sortBy: sortByOption});
     }
 
+    handleTermChange(e){
+        this.setState({term: e.target.value})
+    }
+    handleLocationChange(e){
+        this.setState({location: e.target.value})
+    }
+    handleSearch(e){
+        this.props.searchYelp(this.state.term, this.state.locatoion, this.state.sortBy);
+        e.preventDefault();
+    }
+
+
     renderSortByOptions() {
         return Object.keys(this.sortByOptions).map(sortByOption => {
-            let sortByOptionsValue = this.sortByOptions[sortByOption]
-            return <li key={sortByOptionsValue}>{sortByOption}</li>;
+            let sortByOptionValue = this.sortByOptions[sortByOption]
+            return <li onClick={this.handleSortByChange} className={this.getSortByClass(sortByOptionValue)} 
+            key={sortByOptionValue}>{sortByOption}</li>;
         });
     }
 
@@ -51,13 +68,15 @@ class SearchBar extends React.Component {
                 </ul>
             </div>
             <div className="SearchBar-fields">
-                <input placeholder="Search Businesses" />
-                <input placeholder="Where?" />
+                <input placeholder="Search Businesses" onChange={this.handleTermChange}/>
+                <input placeholder="Where?" onChange={this.handleLocationChange}/>
             </div>
             <div className="SearchBar-submit">
-                <a>Let's Go</a>
+                <a onClick={this.handleSearch} className={this.searchYelp}>Let's Go</a>
             </div>
         </div>)
     }  
 }
 export default SearchBar;
+
+//Issue getting code to switch colors upon selection
