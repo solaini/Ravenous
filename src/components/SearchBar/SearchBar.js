@@ -46,7 +46,7 @@ class SearchBar extends React.Component {
         this.setState({location: e.target.value})
     }
     handleSearch(e){
-        this.props.searchYelp(this.state.term, this.state.locatoion, this.state.sortBy);
+        this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy);
         e.preventDefault();
     }
 
@@ -80,3 +80,4 @@ class SearchBar extends React.Component {
 export default SearchBar;
 
 //Issue getting code to switch colors upon selection
+//Issues with Instruction 23 for term, lcoation and sortBy
