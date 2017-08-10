@@ -34,7 +34,7 @@ class App extends React.Component{
     this.searchYelp = this.searchYelp.bind(this);
   }
   searchYelp(term, location, sortBy){
-    return console.log(`Searching Yelp with ${this.term}, ${this.location}, ${this.sortBy}`);
+    return console.log(`Searching Yelp with ${term}, ${location}, ${sortBy}`);
   }
 
   render() {
