@@ -1,4 +1,3 @@
-//import React, { Component } from 'react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import logo from './logo.svg';
@@ -29,15 +28,20 @@ const businesses = [
 ];
 
 class App extends React.Component{
+  constructor(props){
+    super(props);
+
+    this.searchYelp = this.searchYelp.bind(this);
+  }
   searchYelp(term, location, sortBy){
-    return console.log(`Searching Yelp with ${term}, ${this.location}, ${this.sortBy}`);
+    return console.log(`Searching Yelp with ${this.term}, ${this.location}, ${this.sortBy}`);
   }
 
   render() {
     return (
       <div className="App">
         <h1>Ravenous</h1>
-        <SearchBar />
+        <SearchBar searchYelp={this.searchYelp}/>
         <BusinessList businesses={businesses}/>
       </div>
     );
