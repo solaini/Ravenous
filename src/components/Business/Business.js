@@ -20,8 +20,8 @@ class Business extends React.Component{
                         <p>{this.props.businesses.state + ', '+ this.props.businesses.zipCode}</p>
                     </div>
                     <div className="Business-reviews">
-                        <h3>{this.props.businesses.category.toUpperCase()}</h3>
-                        <h3 className="rating">{this.props.businesses.rating} stars}</h3>
+                        <h3>{this.props.businesses.category}</h3>
+                        <h3 className="rating">{this.props.businesses.rating} stars</h3>
                         <p>{this.props.businesses.reviewCount} reviews</p>
                     </div>
                 </div>
